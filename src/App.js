@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Profile from './Profile'
+import "./App.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component{
+  state = { isVisible : false};
+  handleShow=()=>this.setState({isVisible:!this.state.isVisible});
+ 
+
+  render() 
+  {
+    return (
+      <div className='App'>
+      <button className='bouton' onClick={this.handleShow}>{this.state.isVisible?'hide':'show'}</button>
+      {this.state.isVisible === true ? <Profile/> : null }
+      </div>
+    )
+  
+  }
 }
 
-export default App;
+
